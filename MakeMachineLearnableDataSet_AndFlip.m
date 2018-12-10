@@ -20,7 +20,7 @@ nlabels = []; %Blank matrix for reinitializing
 nEEG = EEG; %Creates blank EEG Struct for reinitializing
 
 EEG.etc.eeglabvers = '14.1.2'; % this tracks which version of EEGLAB is being used, you may ignore it
-for k=1:1
+for k=1:19
     
     %Skip missing subjects 12, 17
     if (k == 12 ) || (k == 17)
@@ -29,7 +29,7 @@ for k=1:1
     
     %Loop through each of the 4 conditions CR, FA, Hit, Miss
     %CR = 1, FA = 2, Hit = 3, Miss = 4
-    for n=1:1
+    for n=1:4
         doc = sprintf('%02d%s.set',k,con(n)); %sprintf must be used for newer Matlab versions, filename is of form '01cr.set'
                 
         % For PC
@@ -54,12 +54,12 @@ for k=1:1
         
     %Convert to .SET file and Save
     title = sprintf('%02d',k); %Create title for plots
-    %EEG.labels = labels;
+    EEG.labels = labels;
     EEG = pop_saveset(EEG, title, 'Data\\DecodableFiles');
     
     %Save Chosen Variables to .mat file
-    title = sprintf('Data\\DecodableFiles\\%02d',k); %Create title for plots
-    save(title, 'EEG', 'labels');
+        %title = sprintf('Data\\DecodableFiles\\%02d',k); %Create title for plots
+        %save(title, 'EEG', 'labels');
     
     %Reinitialize variables
     EEG = nEEG;
