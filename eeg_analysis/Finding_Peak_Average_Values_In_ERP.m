@@ -1,6 +1,12 @@
 %This script produces the average value of an ERP over a given time for
 %multiple electrodces
 %
+%Setting 'k' below will allows one to select a certain subject
+%corresponding to that number, or a certain range of subjects ie k =1:5
+%will give ERP averages for all conditions of subjectts 1, 2, 3, 4, 5.
+%
+%Setting 'n' will do likewire but for conditions. With n=1 "Correct
+%Rejection", n=2 "False Alarm", n=3 "Hit", and n=4 "Miss"
 %
 %Made by: Jonathan Giordano
 %November 14, 2018
@@ -13,7 +19,7 @@ condition = ["Correct Rejection", "False Alarm", "Hit", "Miss"];
 doc = " ";
 
 %% Create Variables for Averaging
-chan = [3 5 35 37]; %Select channels to measure with this variable of form (X Y Z)
+chan = [36 37 38]; %Select channels to measure with this variable of form (X Y Z)
 start_time = 50; %Select interval start time
 end_time = 150; %Select interval end tile
 interval = round(0.5*start_time+101):round(0.5*end_time+101); %Time Interval, based on sampling of 500Hz
@@ -35,11 +41,12 @@ for k=1:19
         doc = sprintf('%02d%s.set',k,con(n)); %sprintf must be used for newer Matlab versions, create filename of form '01cr.set'
         
         title = sprintf('ERP Data - Subject %02d - %s',k,condition(n)); %Create Title for plots
-        % For PC
-         EEG = pop_loadset('filename',doc,'filepath','C:\\Users\\jonny\\Desktop\\Stage\\dssd_divided\\');
-        
-        % For Mac
-        % EEG = pop_loadset('filename',doc,'filepath','/Volumes/JVG_USB/Stage/dssd_divided/');
+
+        % WINDOWS
+        EEG = pop_loadset('filename',doc,'filepath', strcat(home, '\data\dssd_divided'));
+                
+        % MAC
+%       EEG = pop_loadset('filename',doc,'filepath',strcat(home, '/data/dssd_divided'));
         
         EEG = eeg_checkset( EEG );
         
@@ -67,6 +74,6 @@ T = table(Correct_Rejection, False_Alarm, Hit, Miss);
 %Export
 chan2 = sprintf('%.f-',chan);
 chan2 = chan2(1:end-1);
-excel_name = "Avg Peak Value_"+string(start_time)+'-'+string(end_time)+'_'+chan2+'.xlsx';
+excel_name = "Results/Avg Peak Value_"+string(start_time)+'-'+string(end_time)+'_'+chan2+'.xlsx';
 writetable(T,excel_name);
     

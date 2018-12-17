@@ -29,24 +29,21 @@ for k=1:19
     for n=1:4
         doc = sprintf('%02d%s.set',k,con(n)); %sprintf must be used for newer Matlab versions, filename is of form '01cr.set'
         title = sprintf('Spectra Data - Subject %02d - %s',k,condition(n)); %Create Title for plots
-
+        
         % WINDOWS
-              
         EEG = pop_loadset('filename',doc,'filepath', strcat(home, '\data\dssd_divided'));
-        
-        
+                
         % MAC
-%       
 %       EEG = pop_loadset('filename',doc,'filepath',strcat(home, '/data/dssd_divided'));
-%       
-        
         
         %figure; pop_timtopo(EEG, [-200  598], [NaN], title);
         figure('name',title); pop_spectopo(EEG, 1, [-200  598], 'EEG' , 'percent', 75, 'freq', [10], 'freqrange',[2 25],'electrodes','off');
 
         %For saving figures
         title = sprintf('Spectra Data - Subject %02d - %s.fig',k,condition(n)); %Create Title for plots
-        savefig(title);
+        
+        %To Save Figure to home directory
+        %savefig(title);
         
     end
 end

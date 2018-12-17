@@ -31,12 +31,9 @@ for k=1:19
         title = sprintf('ERP Data - Subject %02d - %s',k,condition(n)); %Create Title for plots
         
         % WINDOWS
-              
         EEG = pop_loadset('filename',doc,'filepath', strcat(home, '\data\dssd_divided'));
-        
-        
+                
         % MAC
-%       
 %       EEG = pop_loadset('filename',doc,'filepath',strcat(home, '/data/dssd_divided'));
 %       
          
@@ -45,7 +42,9 @@ for k=1:19
         
         %For saving figures
         title = sprintf('ERP Data - Subject %02d - %s.fig',k,condition(n)); %Create Title for plots
-        savefig(title);
+        
+        %To save figure to home directory
+        %savefig(title);
         
     end
 end

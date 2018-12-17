@@ -1,6 +1,13 @@
 %This script plot the time-frequency analysis of multiple electrodes
 %combined
 %
+%Setting 'k' below will allows one to select a certain subject
+%corresponding to that number, or a certain range of subjects ie k =1:5
+%will give ERP averages for all conditions of subjectts 1, 2, 3, 4, 5.
+%
+%Setting 'n' will do likewire but for conditions. With n=1 "Correct
+%Rejection", n=2 "False Alarm", n=3 "Hit", and n=4 "Miss"
+%
 %
 %Made by: Jonathan Giordano
 %November 15, 2018
@@ -20,7 +27,7 @@ EEG.etc.eeglabvers = '14.1.2'; % this tracks which version of EEGLAB is being us
 
 %% Comptuing averages
 
-for k=1:19
+for k=1:1
     
     %Skip missing subjects 12, 17
     if (k == 12 ) || (k == 17)
@@ -33,11 +40,12 @@ for k=1:19
         chan2 = sprintf('%.f-',chan);
         chan2 = chan2(1:end-1);
         title = sprintf('Subject %02d - %s - Electrode(s) %s',k,condition(n),chan2); %Create Title for plots
-        % For PC
-        % EEG = pop_loadset('filename',doc,'filepath','C:\\Users\\jonny\\Desktop\\Stage\\dssd_divided\\');
         
-        % For Mac
-        EEG = pop_loadset('filename',doc,'filepath','/Volumes/JVG_USB/Stage/dssd_divided/');
+        % WINDOWS
+        EEG = pop_loadset('filename',doc,'filepath', strcat(home, '\data\dssd_divided'));
+                
+        % MAC
+%       EEG = pop_loadset('filename',doc,'filepath',strcat(home, '/data/dssd_divided'));
         
         EEG = eeg_checkset( EEG );
                      
