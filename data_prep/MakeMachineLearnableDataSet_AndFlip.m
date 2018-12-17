@@ -14,6 +14,7 @@
 con = ["cr", "fa", "hit", "miss"];
 condition = ["Correct Rejection", "False Alarm", "Hit", "Miss"];
 doc = " ";
+home = pwd;
 
 labels = []; %Create "labels" vector containing conditions,
 nlabels = []; %Blank matrix for reinitializing
@@ -33,7 +34,11 @@ for k=1:19
         doc = sprintf('%02d%s.set',k,con(n)); %sprintf must be used for newer Matlab versions, filename is of form '01cr.set'
                 
         % For PC
-        tEEG = pop_loadset('filename',doc,'filepath','C:\\Users\\jonny\\Desktop\\Stage\\Data\\dssd_divided\\');
+        tEEG = pop_loadset('filename',doc,'filepath', strcat(home, '\data\dssd_divided'));
+                
+        % MAC
+        % tEEG = pop_loadset('filename',doc,'filepath',strcat(home, '/data/dssd_divided'));
+        
         
         %Flip the data
         tEEG = Convert_To_FB(tEEG);
@@ -55,11 +60,16 @@ for k=1:19
     %Convert to .SET file and Save
     title = sprintf('%02d',k); %Create title for plots
     EEG.labels = labels;
-    EEG = pop_saveset(EEG, title, 'Data\\DecodableFiles');
+    
+    %WINDOWS
+    EEG = pop_saveset(EEG, title, strcat(home, '\data\flipped_decodable_files'));
+        
+    %MAC
+    %EEG = pop_saveset(EEG, title, strcat(home, '/data/flipped_decodable_files'));
     
     %Save Chosen Variables to .mat file
-        %title = sprintf('Data\\DecodableFiles\\%02d',k); %Create title for plots
-        %save(title, 'EEG', 'labels');
+    %title = sprintf('Data\\DecodableFiles\\%02d',k); %Create title for plots
+    %save(title, 'EEG', 'labels');
     
     %Reinitialize variables
     EEG = nEEG;
