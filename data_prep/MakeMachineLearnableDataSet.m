@@ -69,6 +69,7 @@ for k=1:19
     
     %Convert to .SET file and Save
     title = sprintf('%02d',k); %Create title for plots
+    EEG.labels = labels;   
     
     %WINDOWS
     EEG = pop_saveset(EEG, title, strcat(home, '\data\decodable_files'));
