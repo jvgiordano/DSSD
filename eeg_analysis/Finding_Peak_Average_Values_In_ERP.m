@@ -8,6 +8,10 @@
 %Setting 'n' will do likewire but for conditions. With n=1 "Correct
 %Rejection", n=2 "False Alarm", n=3 "Hit", and n=4 "Miss"
 %
+%
+%Warning: This code only works for data sampled at 500Hz!
+%
+%
 %Made by: Jonathan Giordano
 %November 14, 2018
 %

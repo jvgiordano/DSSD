@@ -1,5 +1,5 @@
 filenames = {
-'01hit_recoded' ...
+'01miss_recoded' ...
 
 };
 
@@ -7,8 +7,8 @@ filenames = {
 %meg_filenames = file_list_restrict(filenames,'MEG'); % only MEG files
 
 % event code specifications for factor stimulus type
-class_1 = [11, 12];
-class_2 = [21, 22];
+class_1 = [11, 21];
+class_2 = [12, 22];
 
 % GENERAL ANALYSIS CONFIGURATION SETTINGS
 home = pwd; %Home is setting to working directory
@@ -33,7 +33,7 @@ adam_MVPA_firstlevel(cfg); % run first level analysis
 
 %% Plot
 
-load([cfg.outputdir, '/ALL_NOSELECTION/CLASS_PERF_01hit_recoded_5fold.mat']); %Load in file to plot
+load([cfg.outputdir, '/ALL_NOSELECTION/CLASS_PERF_01miss_recoded_3fold.mat']); %Load in file to plot
 
 n_classes = length(settings.condset);
 n_timep = length(settings.times{1});

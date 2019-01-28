@@ -44,6 +44,8 @@ for k=1:19
         title = sprintf('ERP Data - Subject %02d - %s.fig',k,condition(n)); %Create Title for plots
         
         %To save figure to home directory
+        %home = pwd;
+        
         %savefig(title);
         
     end
