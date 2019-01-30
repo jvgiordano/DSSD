@@ -61,7 +61,7 @@ for i = 1:n
         inputArg.data([43 51],:,i) = inputArg.data([51 43],:,i);
         inputArg.data([44 50],:,i) = inputArg.data([50 44],:,i);
         inputArg.data([45 49],:,i) = inputArg.data([49 45],:,i);
-        inputArg.data([16 48],:,i) = inputArg.data([48 16],:,i);
+        inputArg.data([46 48],:,i) = inputArg.data([48 46],:,i);
     end
 end
 
