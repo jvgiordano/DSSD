@@ -1,7 +1,14 @@
 % For this script to work you need to change your directory to the folder
 % containing all your subjects folders (1, 2, 3, etc.) or adapt the script
 % to your folder structure.
-
+%
+% This script takes data froom dssd_divided and merges all the cases from a
+% single subject. It labels these cases by replacing the
+% EEG.epoch.eventtype with 1, 2, 3, 4 (CR, FA, Hit, Miss).
+%
+% The output is stored in Data/Recoded files with "_all." ending.
+%
+%
 % Created by: Mehdi Senoussi
 % Edited to work with current set-up : Jonathan Giordano
 % Data January 30, 2019
