@@ -1,12 +1,20 @@
-%This script calculates the number of trials that a given subject completed,
-%calculates the number of trials in each condition, and computes the number
-%of correct and incorrect trials, as well as gives a percentage.
+% SUMMARY: This script determines each subjects completed trials, and their
+% percentage of trials in each category.
+% 
+% INPUT: dssd_divided
 %
-%Setting 'n' will do likewire but for conditions. With n=1 "Correct
-%Rejection", n=2 "False Alarm", n=3 "Hit", and n=4 "Miss"
+% OUTPUT: The results are recorded in an '.xlsx' file under "Results/".
+% There are three seperate outputs files corresponding to: counts,
+% percentages, and grand averages for all trials and subjects.
 %
-%Made by: Jonathan Giordano
-%January 28, 2019
+% USAGE: variable 'k' codes for subject id. It can be set single (k=1),
+% multiple ( k = 1:5 ), or all subjects ( k = 1:19)
+% 
+% 'n' codes for conditions to process, and can be selected similiarly.
+% n=1 "Correct Rejection", n=2 "False Alarm", n=3 "Hit", and n=4 "Miss"
+%
+% Made by: Jonathan Giordano
+% January 28, 2019
 %
 %
 

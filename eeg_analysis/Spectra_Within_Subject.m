@@ -1,7 +1,9 @@
-% SUMMARY: This script produces ERP Averages for selected conditions and
+% SUMMARY: This script produces spectrum plots for selected conditions and
 % selected subjects.
 %
 % INPUT: dssd_divided, flipped files
+%
+% OUTPUT: Results will be plotted
 %
 % USAGE: variable 'k' codes for subject id. It can be set single (k=1),
 % multiple ( k = 1:5 ), or all subjects ( k = 1:19)
@@ -10,7 +12,7 @@
 % n=1 "Correct Rejection", n=2 "False Alarm", n=3 "Hit", and n=4 "Miss"
 %
 % Made by: Jonathan Giordano
-% November 4, 2018
+% November 5, 2018
 %
 %
 
@@ -31,24 +33,21 @@ for k=1:19
     %Loop through each of the 4 conditions CR, FA, Hit, Miss
     for n=1:4
         doc = sprintf('%02d%s.set',k,con(n)); %sprintf must be used for newer Matlab versions, filename is of form '01cr.set'
-        title = sprintf('ERP Data - Subject %02d - %s',k,condition(n)); %Create Title for plots
+        title = sprintf('Spectra Data - Subject %02d - %s',k,condition(n)); %Create Title for plots
         
         % WINDOWS
         EEG = pop_loadset('filename',doc,'filepath', strcat(home, '\data\dssd_divided'));
                 
         % MAC
 %       EEG = pop_loadset('filename',doc,'filepath',strcat(home, '/data/dssd_divided'));
-%       
-         
-        EEG = eeg_checkset( EEG );
-        figure(); pop_timtopo(EEG, [-200  598], [NaN], title);
         
+        %figure; pop_timtopo(EEG, [-200  598], [NaN], title);
+        figure('name',title); pop_spectopo(EEG, 1, [-200  598], 'EEG' , 'percent', 75, 'freq', [10], 'freqrange',[2 25],'electrodes','off');
+
         %For saving figures
-        title = sprintf('ERP Data - Subject %02d - %s.fig',k,condition(n)); %Create Title for plots
+        title = sprintf('Spectra Data - Subject %02d - %s.fig',k,condition(n)); %Create Title for plots
         
-        %To save figure to home directory
-        %home = pwd;
-        
+        %To Save Figure to home directory
         %savefig(title);
         
     end

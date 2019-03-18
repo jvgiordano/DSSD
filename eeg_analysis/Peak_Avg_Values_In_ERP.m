@@ -1,20 +1,22 @@
-%This script produces the average value of an ERP over a given time for
-%multiple electrodces
+% SUMMARY: This script computes the peark average value for a selected time
+% bin over selected channels. This is computed for selected subjects and
+% conditions
 %
-%Setting 'k' below will allows one to select a certain subject
-%corresponding to that number, or a certain range of subjects ie k =1:5
-%will give ERP averages for all conditions of subjectts 1, 2, 3, 4, 5.
+% INPUT: dssd_divided, fliped_files
 %
-%Setting 'n' will do likewire but for conditions. With n=1 "Correct
-%Rejection", n=2 "False Alarm", n=3 "Hit", and n=4 "Miss"
+% OUTPUT: results are recored under "Results/" folder. The file will be
+% marked by selected start time, end time, and electrodes.
 %
+% USAGE: variable 'k' codes for subject id. It can be set single (k=1),
+% multiple ( k = 1:5 ), or all subjects ( k = 1:19)
+% 
+% 'n' codes for conditions to process, and can be selected similiarly.
+% n=1 "Correct Rejection", n=2 "False Alarm", n=3 "Hit", and n=4 "Miss"
 %
-%Warning: This code only works for data sampled at 500Hz!
-%
+% NOTE: This code only works for data sets sampled at 500 Hz!
 %
 %Made by: Jonathan Giordano
 %November 14, 2018
-%
 %
 
 %% Create Condition Array

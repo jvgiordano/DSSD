@@ -1,19 +1,23 @@
-%This script takes all .set files and converts them to Forward-Backward.
+% SUMMARY: Script flips all mirrored electrodes across the logitudinal
+% fissure line for all trials marked by a left saccade. This changes the
+% model from left-right one to a forwards-backwards model. If the saccadic
+% target jumps to the "right", this is a "forward" jump. If the saccadic
+% target jumps to the "left", this is a "backwards" jump.
 %
-%In this way all saccades are "to the right" according to the scalp map,
-%and all target displacements becomes forward, backward, or do not move
-%in relation to the origin.
+% INPUT: dssd_divided
 %
-%This script produces Spectra plots for all conditions and subjects
-%Setting 'k' below will allows one to select a certain subject
-%corresponding to that number, or a certain range of subjects ie k =1:5
-%will give ERP averages for all conditions of subjectts 1, 2, 3, 4, 5.
+% OUTPUT: all files under "flipped_files"
 %
-%Setting 'n' will do likewire but for conditions. With n=1 "Correct
-%Rejection", n=2 "False Alarm", n=3 "Hit", and n=4 "Miss"%
+% USAGE: variable 'k' codes for subject id. It can be set single (k=1),
+% multiple ( k = 1:5 ), or all subjects ( k = 1:19)
+% 
+% 'n' codes for conditions to process, and can be selected similiarly.
+% n=1 "Correct Rejection", n=2 "False Alarm", n=3 "Hit", and n=4 "Miss"
 %
-%Made by: Jonathan Giordano
-%December 10, 2018
+% NOTE: This file requires the function "Convert_To_FB.m" 
+%
+% Made by: Jonathan Giordano
+% December 10, 2018
 %
 
 %Create Condition Array

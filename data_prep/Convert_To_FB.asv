@@ -4,11 +4,23 @@
 % target jumps to the "right", this is a "forward" jump. If the saccadic
 % target jumps to the "left", this is a "backwards" jump.
 %
-% INPUT: dssd_divided
+% INPUT: ds
 %
-% OUTPUT: all files under "flipped_files"
+
+
+
+
+
+
+Convert_to_FB - Returns EEG data in a Forward Back Scheme
+%   Instead of the EEG data being split between saccaddes to the left and
+%   right, Convert_to_FB takes all left saccades (events: S10, S11, S12)
+%   and switches corresponding electrodes across the longitudinal fissure.
 %
-% USAGE: 
+%   In this way all saccades are "to the right" according to the scalp map,
+%   and all target displacements becomes forward, backward, or do not move
+%   in relation to the origin.
+%
 %
 % Made by: Jonathan Giordano
 % December 9, 2018

@@ -1,12 +1,29 @@
-%This script creates a STUDY with the selected datasets
+% SUMMARY: This cript creates a STUDY in EEGLab with selected datasets
 %
-%Made by: Jonathan Giordano
-%November 19, 2018
+% INPUT: dssd_divided, flipped_files
+%
+% OUTPUT: EEGLab window will open and user will be given option to name and
+% choose the location of STUDY file to be saved. It is recommended the
+% STUDY file by placed under the corresponding data folider
+%( ie dssd_divided, flipped_files)
+%
+% USAGE: Each data set must be selected individually, from its
+% corresponding folder.
+%
+% Examples:
+% { 'index' X 'load' Data/flipped_files/01cr.set' 'subject' 'S01'
+% 'condition' 'Correct Rejection' }
+%
+%{ 'index' 1 'load' Data/dssd_divided/01cr.set' 'subject' 'S01'
+% 'condition' 'Correct Rejection' }
+%
+% **X - corresponds to index number. This marks 1st, 2nd, 3rd... loaded
+% file. Takes on values 1, 2, ... -> number of loaded files.
+%
+% Made by: Jonathan Giordano
+% November 19, 2018
 %
 % 
-% 
-
-
 %First start EEGLAB
 eeglab
 

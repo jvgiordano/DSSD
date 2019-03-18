@@ -1,16 +1,18 @@
-%This script plot the time-frequency analysis of multiple electrodes
-%combined
+% SUMMARY: This scripts time-frequency analysis of multiple electrodes
+% combined. These electrodes are chosen by the user.
 %
-%Setting 'k' below will allows one to select a certain subject
-%corresponding to that number, or a certain range of subjects ie k =1:5
-%will give ERP averages for all conditions of subjectts 1, 2, 3, 4, 5.
+% INPUT: dssd_divided, flipped_files
 %
-%Setting 'n' will do likewire but for conditions. With n=1 "Correct
-%Rejection", n=2 "False Alarm", n=3 "Hit", and n=4 "Miss"
+% OUTPUT: Results will be plotted
 %
+% USAGE: variable 'k' codes for subject id. It can be set single (k=1),
+% multiple ( k = 1:5 ), or all subjects ( k = 1:19)
+% 
+% 'n' codes for conditions to process, and can be selected similiarly.
+% n=1 "Correct Rejection", n=2 "False Alarm", n=3 "Hit", and n=4 "Miss"
 %
-%Made by: Jonathan Giordano
-%November 15, 2018
+% Made by: Jonathan Giordano
+% November 15, 2018
 %
 %
 
