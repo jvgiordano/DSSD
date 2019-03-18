@@ -1,14 +1,23 @@
-%Made by: Jonathan Giordano
-%Combined with part of Mehdi Senoussi's script:
-%"sacc_disp_recoding_triggers.m"
+% SUMMARY: This script converts all event triggers in data set and converts
+% them to numerics so they can be used by ADAM. It also removes events of
+% type 80, 81, and 82. This on work for a single condition, for a single
+% subject. This means, left/right saccade and left/right jumps can be
+% examined.
 %
-% This script takes all event triggers (ie S12, 20, etc.) and converts
-% them to numerics (ie 12, 20, etc.) so they can be used by ADAM
+% INPUT: dssd_divided, flipped_files
 %
-% It also remove any event of the 80, 81, 82 type so ADAM will only see
-% 10 and 20 type events.
+% OUTPUT: Outputs to "Data/recoded_files"
 %
-%Date: January 14, 2019
+% USAGE: variable 'k' codes for subject id. It can be set single (k=1),
+% multiple ( k = 1:5 ), or all subjects ( k = 1:19)
+% 
+% 'n' codes for conditions to process, and can be selected similiarly.
+% n=1 "Correct Rejection", n=2 "False Alarm", n=3 "Hit", and n=4 "Miss"
+%
+% Made by: Jonathan Giordano
+% Combined with part of Mehdi Senoussi's script:
+% "sacc_disp_recoding_triggers.m"
+% Date: January 14, 2019
 %
 
 %Create Condition Array

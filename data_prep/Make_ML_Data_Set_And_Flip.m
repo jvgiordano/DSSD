@@ -1,24 +1,27 @@
-%This script takes all sorted epoch data from dssd_divided, and merges it
-%into a complete matrix in EEG.data. Specifically, trials are
-%concatenanted.
-%The array "labels" indexes each of the conditions in this concatenanted
-%matrix as such: CR = 1, FA = 2, Hit = 3, Miss = 4
-%Finally, the data is saved to a .mat for a single subject. This allows the
-%data to be decoded.
+% SUMMARY: This script takes data from dssd_divided, and concatenates all
+% subject data into single EEG data structure. This is only to be used with
+% Mehdi's ML toolbox. The array 'labels' is added to the EEG data
+% structure, and it indexes each of the conditions in this concatenanted as
+% follows : CR = 1, FA = 2, Hit = 3, Miss = 4. This file also flips the
+% electrodes using the function "Convert_To_FB.m"
 %
-%This script produces Spectra plots for all conditions and subjects
-%Setting 'k' below will allows one to select a certain subject
-%corresponding to that number, or a certain range of subjects ie k =1:5
-%will give ERP averages for all conditions of subjectts 1, 2, 3, 4, 5.
+% INPUT: dssd_divided
 %
-%Setting 'n' will do likewire but for conditions. With n=1 "Correct
-%Rejection", n=2 "False Alarm", n=3 "Hit", and n=4 "Miss"
-
-
+% OUTPUT: Outputs new data file to "decodable_files"
+%
+% USAGE: variable 'k' codes for subject id. It can be set single (k=1),
+% multiple ( k = 1:5 ), or all subjects ( k = 1:19)
+% 
+% 'n' codes for conditions to process, and can be selected similiarly.
+% n=1 "Correct Rejection", n=2 "False Alarm", n=3 "Hit", and n=4 "Miss"
+%
+% NOTE: This requires the function "Convert_To_FB.m" 
 %
 %Made by: Jonathan Giordano
 %November 26, 2018
 %
+
+
 
 %Create Condition Array
 con = ["cr", "fa", "hit", "miss"];
@@ -26,8 +29,7 @@ condition = ["Correct Rejection", "False Alarm", "Hit", "Miss"];
 doc = " ";
 home = pwd;
 
-%Create "labels" vector containing conditions,
-labels = [];
+labels = []; %Create "labels" vector containing conditions,
 nlabels = []; %Blank matrix for reinitializing
 nEEG = EEG; %Creates blank EEG Struct for reinitializing
 
@@ -44,12 +46,17 @@ for k=1:19
     for n=1:4
         doc = sprintf('%02d%s.set',k,con(n)); %sprintf must be used for newer Matlab versions, filename is of form '01cr.set'
                 
-        % WINDOWS
+        % For PC
         tEEG = pop_loadset('filename',doc,'filepath', strcat(home, '\data\dssd_divided'));
                 
         % MAC
         % tEEG = pop_loadset('filename',doc,'filepath',strcat(home, '/data/dssd_divided'));
         
+        
+        %Flip the data
+        tEEG = Convert_To_FB(tEEG);
+        
+        %Concatenate
         EEG.data = cat(3, EEG.data, tEEG.data); 
         
         %Create "labels" array, 
@@ -62,23 +69,24 @@ for k=1:19
     %Pass over 'times', 'chanlocs' in EEG Struct which are always the same
     EEG.times = tEEG.times;
     EEG.chanlocs = tEEG.chanlocs;
-    
-    %Save Chosen Variables to .mat file
-    %title = sprintf('DecodableFiles\\%02d',k); %Create title for plots
-    %save(title, 'EEG', 'labels');
-    
+        
     %Convert to .SET file and Save
     title = sprintf('%02d',k); %Create title for plots
-    EEG.labels = labels;   
+    EEG.labels = labels;
     
     %WINDOWS
-    EEG = pop_saveset(EEG, title, strcat(home, '\data\decodable_files'));
+    EEG = pop_saveset(EEG, title, strcat(home, '\data\flipped_decodable_files'));
         
     %MAC
-    %EEG = pop_saveset(EEG, title, strcat(home, '/data/decodable_files'));
+    %EEG = pop_saveset(EEG, title, strcat(home, '/data/flipped_decodable_files'));
+    
+    %Save Chosen Variables to .mat file
+    %title = sprintf('Data\\DecodableFiles\\%02d',k); %Create title for plots
+    %save(title, 'EEG', 'labels');
     
     %Reinitialize variables
     EEG = nEEG;
     labels = nlabels;
        
 end
+

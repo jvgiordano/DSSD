@@ -1,16 +1,22 @@
-% For this script to work you need to change your directory to the folder
-% containing all your subjects folders (1, 2, 3, etc.) or adapt the script
-% to your folder structure.
+% SUMMARY: This script takes data froom dssd_divided and merges all the 
+% cases from a single subject. It labels these cases by replacing the
+% EEG.epoch.eventtype(2) with 1, 2, 3, 4 (CR, FA, Hit, Miss). The output
+% single subject file can then be used in ADAM.
 %
-% This script takes data froom dssd_divided and merges all the cases from a
-% single subject. It labels these cases by replacing the
-% EEG.epoch.eventtype with 1, 2, 3, 4 (CR, FA, Hit, Miss).
+% INPUT: dssd_divided, flipped_files
 %
-% The output is stored in Data/Recoded files with "_all." ending.
+% OUTPUT: Outputs to "Data/recoded_files
 %
+% USAGE: USAGE: variable 'subject_n' codes for subject id. It can be set 
+% single (subject_n=1), multiple ( subject_n = 1:5 ), or all 
+% subjects ( subject_n = 1:19)
+% 
+% 'trial_type_ind' codes for conditions to process, and can be selected
+% similiarly. 1 = "Correct Rejection", 2 = "False Alarm", 3 = "Hit", and
+% 4 = "Miss"
 %
 % Created by: Mehdi Senoussi
-% Edited to work with current set-up : Jonathan Giordano
+% Modified by: Jonathan Giordano
 % Data January 30, 2019
 %
 %

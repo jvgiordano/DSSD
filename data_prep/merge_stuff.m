@@ -1,3 +1,5 @@
+% NOTE: Not currently used in analysis, can possibly delete
+%
 % For this script to work you need to change your directory to the folder
 % containing all your subjects folders (1, 2, 3, etc.) or adapt the script
 % to your folder structure.
