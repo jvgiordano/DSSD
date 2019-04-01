@@ -26,10 +26,16 @@ home = pwd;
 labels = [];
 
 % loop over all subjects
-for subject_n = 1:2
+for subject_n = 1:19
     % create the data directory path
     data_dir = ['./', num2str(subject_n), '/'];
     % loop over the types of trials: hits, false alarms, etc.
+        
+    %Skip missing subjects 12, 17
+    if (subject_n == 12 ) || (subject_n == 17)
+        continue
+    end
+    
     for trial_type_ind = 1:4
 
         doc = sprintf('%02d%s.set',subject_n,trial_types(trial_type_ind)); %sprintf must be used for newer Matlab versions, filename is of form '01cr.set'
@@ -54,8 +60,8 @@ for subject_n = 1:2
     end
     
     % save the whole dataset
-    data_dir = strcat(home, '\data\recoded_files')
-    eegset_all = pop_saveset(TMPEEG,'filename', sprintf('%02i_all.set',...
+    data_dir = strcat(home, '\data\recoded_files_flipped')
+    eegset_all = pop_saveset(TMPEEG,'filename', sprintf('%02i_all_flipped.set',...
         subject_n), 'filepath', data_dir);
     labels = [];
     

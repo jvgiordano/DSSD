@@ -1,5 +1,6 @@
 filenames = {
 '01_all' ...
+'02_all' ...
 
 };
 
@@ -13,8 +14,8 @@ filenames = {
 % Correct vs Non-Correct (Hit and CR vs FA and Miss) -> [1, 3] [2, 4]
 % Perceived Movement vs None (Hit and FA) vs (CR and Miss) -> [2,3] [1,4]
 %
-class_1 = [1, 2];
-class_2 = [3, 4];
+class_1 = [1,2];
+class_2 = [3,4];
 
 % GENERAL ANALYSIS CONFIGURATION SETTINGS
 home = pwd; %Home is setting to working directory
@@ -22,11 +23,11 @@ cfg = []; % clear the config variable
 cfg.datadir = char(home + "\Data\recoded_files"); % this is where the data files are
 cfg.model = 'BDM'; % backward decoding ('BDM') or forward encoding ('FEM')
 cfg.raw_or_tfr = 'raw'; % classify raw or time frequency representations ('tfr')
-cfg.nfolds = 10; % the number of folds to use
+cfg.nfolds = 5; % the number of folds to use
 cfg.class_method = 'accuracy'; % the performance measure to use, AUC is other option
 cfg.crossclass = 'yes'; % whether to compute temporal generalization
 cfg.channelpool = 'ALL_NOSELECTION'; % the channel selection to use
-cfg.resample = 150; % downsample (useful for temporal generalization)
+cfg.resample = 50; % downsample (useful for temporal generalization)
 cfg.erp_baseline = [-.1,0]; % baseline correction in sec. ('no' for no correction)
 
 
@@ -34,12 +35,12 @@ cfg.erp_baseline = [-.1,0]; % baseline correction in sec. ('no' for no correctio
 cfg.filenames = filenames; % data filenames (EEG in this case)
 cfg.class_spec{1} = cond_string(class_1); % the first stimulus class
 cfg.class_spec{2} = cond_string(class_2); % the second stimulus class
-cfg.outputdir = char(home+ "\Results\"); % output location
+cfg.outputdir = char(home+ "\Results\Stimulus_Movement"); % output location
 adam_MVPA_firstlevel(cfg); % run first level analysis
 
 %% Plot
 
-load([cfg.outputdir, '/ALL_NOSELECTION/CLASS_PERF_01_all_10fold.mat']); %Load in file to plot
+load([cfg.outputdir, '/ALL_NOSELECTION/CLASS_PERF_02_all_10fold.mat']); %Load in file to plot
 
 n_classes = length(settings.condset);
 n_timep = length(settings.times{1});
@@ -50,5 +51,6 @@ plot([settings.times{1}(1), settings.times{1}(end)],...
     [1./n_classes, 1./n_classes], 'k--');
 xlabel('Time course from stimulus onset (s)');
 ylabel('Classification accuracy');
+title('Jump vs No Jump (CR and FA vs Hit and Miss) \n Subject 02')
 grid on;
 legend({'Classification accuracy', 'Chance level'}, 'FontSize', 12)

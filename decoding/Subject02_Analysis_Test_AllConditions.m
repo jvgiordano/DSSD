@@ -7,12 +7,6 @@ filenames = {
 %meg_filenames = file_list_restrict(filenames,'MEG'); % only MEG files
 
 % event code specifications for factor stimulus type
-% Following criteria are possible:
-% Test all conditions -> [1], [2], [3], [4]
-% Jump vs NoJump (CR and FA vs Hit and Miss) -> [1, 2] [3, 4]
-% Correct vs Non-Correct (Hit and CR vs FA and Miss) -> [1, 3] [2, 4]
-% Perceived Movement vs None (Hit and FA) vs (CR and Miss) -> [2,3] [1,4]
-%
 class_1 = [1, 2];
 class_2 = [3, 4];
 

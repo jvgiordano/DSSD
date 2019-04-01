@@ -13,8 +13,8 @@ filenames = {
 % Correct vs Non-Correct (Hit and CR vs FA and Miss) -> [1, 3] [2, 4]
 % Perceived Movement vs None (Hit and FA) vs (CR and Miss) -> [2,3] [1,4]
 %
-class_1 = [1, 2];
-class_2 = [3, 4];
+class_1 = [1,3];
+class_2 = [2,4];
 
 % GENERAL ANALYSIS CONFIGURATION SETTINGS
 home = pwd; %Home is setting to working directory
@@ -34,7 +34,7 @@ cfg.erp_baseline = [-.1,0]; % baseline correction in sec. ('no' for no correctio
 cfg.filenames = filenames; % data filenames (EEG in this case)
 cfg.class_spec{1} = cond_string(class_1); % the first stimulus class
 cfg.class_spec{2} = cond_string(class_2); % the second stimulus class
-cfg.outputdir = char(home+ "\Results\"); % output location
+cfg.outputdir = char(home+ "\Results\Graded_Response"); % output location
 adam_MVPA_firstlevel(cfg); % run first level analysis
 
 %% Plot
@@ -50,5 +50,6 @@ plot([settings.times{1}(1), settings.times{1}(end)],...
     [1./n_classes, 1./n_classes], 'k--');
 xlabel('Time course from stimulus onset (s)');
 ylabel('Classification accuracy');
+title('Correct Response vs Incorrect (CR and Hit vs FA and Miss) \n Subject 01')
 grid on;
 legend({'Classification accuracy', 'Chance level'}, 'FontSize', 12)
