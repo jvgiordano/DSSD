@@ -29,9 +29,7 @@ filenames = {
 % Perceived Movement vs None (Hit and FA) vs (CR and Miss) -> [2,3] [1,4]
 %
 class_1 = 1;
-class_2 = 2;
-class_3 = 3;
-class_4 = 4;
+class_2 = 4;
 
 % GENERAL ANALYSIS CONFIGURATION SETTINGS
 home = pwd; %Home is setting to working directory
@@ -51,24 +49,22 @@ cfg.erp_baseline = [-.1,0]; % baseline correction in sec. ('no' for no correctio
 cfg.filenames = filenames; % data filenames (EEG in this case)
 cfg.class_spec{1} = cond_string(class_1); % the first stimulus class
 cfg.class_spec{2} = cond_string(class_2); % the second stimulus class
-cfg.class_spec{3} = cond_string(class_3);
-cfg.class_spec{4} = cond_string(class_4);
-cfg.outputdir = char(home+ "\Results\Flipped\All_Conditions"); % output location
+cfg.outputdir = char(home+ "\Results\Flipped\CR_vs_Miss_AUC"); % output location
 adam_MVPA_firstlevel(cfg); % run first level analysis
 
 %% Plot
 
-load([cfg.outputdir, '/ALL_NOSELECTION/CLASS_PERF_02_all_flipped_10fold.mat']); %Load in file to plot
-
-n_classes = length(settings.condset);
-n_timep = length(settings.times{1});
-figure; hold on
-plot(settings.times{1},...
-    BDM.ClassOverTime(logical(eye(size(BDM.ClassOverTime, 1)))))
-plot([settings.times{1}(1), settings.times{1}(end)],...
-    [1./n_classes, 1./n_classes], 'k--');
-xlabel('Time course from stimulus onset (s)');
-ylabel('Classification accuracy');
-title('Jump vs No Jump (CR and FA vs Hit and Miss) \n Subject 02')
-grid on;
-legend({'Classification accuracy', 'Chance level'}, 'FontSize', 12)
+% load([cfg.outputdir, '/ALL_NOSELECTION/CLASS_PERF_01_all_flipped_10fold.mat']); %Load in file to plot
+% 
+% n_classes = length(settings.condset);
+% n_timep = length(settings.times{1});
+% figure; hold on
+% plot(settings.times{1},...
+%     BDM.ClassOverTime(logical(eye(size(BDM.ClassOverTime, 1)))))
+% plot([settings.times{1}(1), settings.times{1}(end)],...
+%     [1./n_classes, 1./n_classes], 'k--');
+% xlabel('Time course from stimulus onset (s)');
+% ylabel('Classification accuracy');
+% title('Subject 01 - Hits vs Misses')
+% grid on;
+% legend({'Classification accuracy', 'Chance level'}, 'FontSize', 12)

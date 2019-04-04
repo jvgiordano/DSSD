@@ -1,4 +1,0 @@
-run Subject01_Analysis_Graded_Response.m;
-run Subject01_Analysis_Perceived_Movement.m;
-run Subject01_Analysis_Stimulus_Movement.m;
-run Subject01_Analysis_Test_All_Conditions.m;
