@@ -49,7 +49,7 @@ cfg.erp_baseline = [-.1,0]; % baseline correction in sec. ('no' for no correctio
 cfg.filenames = filenames; % data filenames (EEG in this case)
 cfg.class_spec{1} = cond_string(class_1); % the first stimulus class
 cfg.class_spec{2} = cond_string(class_2); % the second stimulus class
-cfg.outputdir = char(home+ "\Results\Flipped\Correct_Response_AUC"); % output location
+cfg.outputdir = char(home+ "\Results\Flipped\Perceived_Movement_AUC"); % output location
 adam_MVPA_firstlevel(cfg); % run first level analysis
 
 %% Plot
