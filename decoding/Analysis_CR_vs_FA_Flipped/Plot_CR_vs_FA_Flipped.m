@@ -17,7 +17,7 @@ cfg = [];
 cfg.startdir = char(pwd + "\Resuts\Flipped\CR_vs_FA_AUC");
 cfg.mpcompcor_method = 'cluster_based';
 cfg.reduce_dims = 'diag'; %Train and test on the same points
-cfg.splinefreq = 11 %This is a low pass filter, remove it to see exact results
+%cfg.splinefreq = 11 %This is a low pass filter, remove it to see exact results
 cfg.plotsubjects = true;
 
 
@@ -31,7 +31,7 @@ mvpa_stats = adam_compute_group_MVPA(cfg);
 cfg = [];
 cfg.singleplot = true;
 cfg.plotsubjects = true;
-cfg.acclim = [0.40 .60];
+cfg.acclim = [0.40 .65];
 
 %Plot combined results
 adam_plot_MVPA(cfg, mvpa_stats);

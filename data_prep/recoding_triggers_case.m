@@ -1,6 +1,6 @@
 % SUMMARY: This script converts all event triggers in data set and converts
 % them to numerics so they can be used by ADAM. It also removes events of
-% type 80, 81, and 82. This on work for a single condition, for a single
+% type 80, 81, and 82. This works for a single condition, for a single
 % subject. This means, left/right saccade and left/right jumps can be
 % examined.
 %

@@ -11,12 +11,12 @@
 % April 4, 2019
 
 %% All Conditions
-Analysis_Test_All_Conditions_Flipped
+%Analysis_Test_All_Conditions_Flipped
 
 
 %% Combined conditions
-Analysis_Correct_Response_Flipped
-Analysis_Perceived_Movement_Flipped
+%Analysis_Correct_Response_Flipped
+%Analysis_Perceived_Movement_Flipped
 Analysis_Stimulus_Movement_Flipped
 
 %% Individal conditions

@@ -31,7 +31,7 @@ mvpa_stats = adam_compute_group_MVPA(cfg);
 cfg = [];
 cfg.singleplot = true;
 cfg.plotsubjects = true;
-cfg.acclim = [0.40 .60];
+cfg.acclim = [0.40 .65];
 
 %Plot combined results
 adam_plot_MVPA(cfg, mvpa_stats);
