@@ -41,7 +41,7 @@ cfg.nfolds = 10; % the number of folds to use
 cfg.class_method = 'AUC'; % the performance measure to use, AUC is other option
 cfg.crossclass = 'yes'; % whether to compute temporal generalization
 cfg.channelpool = 'ALL_NOSELECTION'; % the channel selection to use
-%cfg.resample = 150; % downsample (useful for temporal generalization)
+cfg.resample = 150; % downsample (useful for temporal generalization)
 cfg.erp_baseline = [-.1,0]; % baseline correction in sec. ('no' for no correction)
 
 
@@ -49,7 +49,7 @@ cfg.erp_baseline = [-.1,0]; % baseline correction in sec. ('no' for no correctio
 cfg.filenames = filenames; % data filenames (EEG in this case)
 cfg.class_spec{1} = cond_string(class_1); % the first stimulus class
 cfg.class_spec{2} = cond_string(class_2); % the second stimulus class
-cfg.outputdir = char(home+ "\Results\Flipped\Stimulus_Movement_AUC_org"); % output location
+cfg.outputdir = char(home+ "\Results\Flipped\Stimulus_Movement_AUC_org_2"); % output location
 adam_MVPA_firstlevel(cfg); % run first level analysis
 
 %% Plot

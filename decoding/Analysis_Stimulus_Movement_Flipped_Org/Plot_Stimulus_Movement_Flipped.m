@@ -17,9 +17,8 @@ cfg = [];
 cfg.startdir = char(pwd + "\Resuts\Flipped\Stimulus_Movement_AUC");
 cfg.mpcompcor_method = 'cluster_based';
 cfg.reduce_dims = 'diag'; %Train and test on the same points
-%cfg.splinefreq = 11 %This is a low pass filter, remove it to see exact results
+%cfg.splinefreq = 12 %This is a low pass filter, remove it to see exact results
 cfg.plotsubjects = true;
-
 
 %Calculate statistics, plot single subjects
 figure(1)
