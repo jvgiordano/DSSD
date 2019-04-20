@@ -34,7 +34,13 @@ class_2 = 2;
 % GENERAL ANALYSIS CONFIGURATION SETTINGS
 home = pwd; %Home is setting to working directory
 cfg = []; % clear the config variable
-cfg.datadir = char(home + "\Data\recoded_files_flipped"); % this is where the data files are
+
+%WINDOWS
+%cfg.datadir = char(home + "\Data\recoded_files_flipped"); % this is where the data files are
+
+%MAC
+cfg.datadir = char(home + "/Data/recoded_files_flipped"); % this is where the data files are
+
 cfg.model = 'BDM'; % backward decoding ('BDM') or forward encoding ('FEM')
 cfg.raw_or_tfr = 'raw'; % classify raw or time frequency representations ('tfr')
 cfg.nfolds = 10; % the number of folds to use
@@ -42,14 +48,20 @@ cfg.class_method = 'AUC'; % the performance measure to use, AUC is other option
 cfg.crossclass = 'yes'; % whether to compute temporal generalization
 cfg.channelpool = 'ALL_NOSELECTION'; % the channel selection to use
 cfg.resample = 150; % downsample (useful for temporal generalization)
-cfg.erp_baseline = [-.1,0]; % baseline correction in sec. ('no' for no correction)
+cfg.erp_baseline = 'no'; % baseline correction in sec. ('no' for no correction)
 
 
 % SPECIFIC SETTINGS: EEG NONFAMOUS VERSUS SCRAMBLED FACES
 cfg.filenames = filenames; % data filenames (EEG in this case)
 cfg.class_spec{1} = cond_string(class_1); % the first stimulus class
 cfg.class_spec{2} = cond_string(class_2); % the second stimulus class
-cfg.outputdir = char(home+ "\Results\Flipped\CR_vs_FA_AUC"); % output location
+
+%WINDOWS
+%cfg.outputdir = char(home+ "\Results\Flipped\CR_vs_FA_AUC"); % output location
+
+%MAC
+cfg.outputdir = char(home+ "/Results/Flipped/CR_vs_FA_AUC"); % output location
+
 adam_MVPA_firstlevel(cfg); % run first level analysis
 
 %% Plot

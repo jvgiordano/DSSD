@@ -41,7 +41,7 @@ cfg = []; % clear the config variable
 %cfg.datadir = char(home + "\Data\recoded_files_flipped"); % this is where the data files are
 
 %MAC
-cfg.datadir = char(home + "/Data/recoded_files_flipped"); % this is where the data files
+cfg.datadir = char(home + "/Data/recoded_files_flipped"); % this is where the data files are
 
 cfg.model = 'BDM'; % backward decoding ('BDM') or forward encoding ('FEM')
 cfg.raw_or_tfr = 'raw'; % classify raw or time frequency representations ('tfr')
@@ -50,7 +50,7 @@ cfg.class_method = 'AUC'; % the performance measure to use, AUC is other option
 cfg.crossclass = 'yes'; % whether to compute temporal generalization
 cfg.channelpool = 'ALL_NOSELECTION'; % the channel selection to use
 cfg.resample = 150; % downsample (useful for temporal generalization)
-cfg.erp_baseline = [-.1,0]; % baseline correction in sec. ('no' for no correction)
+cfg.erp_baseline = 'no'; % baseline correction in sec. ('no' for no correction)
 
 
 % SPECIFIC SETTINGS: EEG NONFAMOUS VERSUS SCRAMBLED FACES
@@ -61,7 +61,7 @@ cfg.class_spec{3} = cond_string(class_3);
 cfg.class_spec{4} = cond_string(class_4);
 
 %WINDOWS
-cfg.outputdir = char(home+ "\Results\Flipped\All_Conditions_AUC"); % output location
+%cfg.outputdir = char(home+ "\Results\Flipped\All_Conditions_AUC"); % output location
 
 %MAC
 cfg.outputdir = char(home+ "/Results/Flipped/All-Conditins_AUC"); % output location
@@ -69,19 +69,19 @@ cfg.outputdir = char(home+ "/Results/Flipped/All-Conditins_AUC"); % output locat
 adam_MVPA_firstlevel(cfg); % run first level analysis
 
 %% Plot
-
-load([cfg.outputdir, '/ALL_NOSELECTION/CLASS_PERF_07_all_flipped_10fold.mat']); %Load in file to plot
-
-n_classes = length(settings.condset);
-n_timep = length(settings.times{1});
-figure; hold on
-plot(settings.times{1},...
-    BDM.ClassOverTime(logical(eye(size(BDM.ClassOverTime, 1)))))
-plot([settings.times{1}(1), settings.times{1}(end)],...
-    [1./n_classes, 1./n_classes], 'k--');
-% xlabel('Time course from stimulus onset (s)');
-% ylabel('Classification accuracy');
-% title({'Jump vs No Jump (CR and FA vs Hit and Miss)', 'Subject 01'})
-% grid on;
-% legend({'Classification accuracy', 'Chance level'}, 'FontSize', 12)
+% 
+% load([cfg.outputdir, '/ALL_NOSELECTION/CLASS_PERF_07_all_flipped_10fold.mat']); %Load in file to plot
+% 
+% n_classes = length(settings.condset);
+% n_timep = length(settings.times{1});
+% figure; hold on
+% plot(settings.times{1},...
+%     BDM.ClassOverTime(logical(eye(size(BDM.ClassOverTime, 1)))))
+% plot([settings.times{1}(1), settings.times{1}(end)],...
+%     [1./n_classes, 1./n_classes], 'k--');
+% % xlabel('Time course from stimulus onset (s)');
+% % ylabel('Classification accuracy');
+% % title({'Jump vs No Jump (CR and FA vs Hit and Miss)', 'Subject 01'})
+% % grid on;
+% % legend({'Classification accuracy', 'Chance level'}, 'FontSize', 12)
 
