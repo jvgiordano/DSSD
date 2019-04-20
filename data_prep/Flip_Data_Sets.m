@@ -40,10 +40,10 @@ for k=1:19
         doc = sprintf('%02d%s.set',k,con(n)); %sprintf must be used for newer Matlab versions, filename is of form '01cr.set'
                 
         % WINDOWS
-        tEEG = pop_loadset('filename',doc,'filepath', strcat(home, '\data\dssd_divided_org'));
+        %tEEG = pop_loadset('filename',doc,'filepath', strcat(home, '\data\dssd_divided_org'));
                 
         % MAC
-        % tEEG = pop_loadset('filename',doc,'filepath',strcat(home, '/data/dssd_divided'));
+        tEEG = pop_loadset('filename',doc,'filepath',strcat(home, '/data/dssd_divided'));
 
         %Flip the data
         tEEG = Convert_To_FB(tEEG);
@@ -52,10 +52,10 @@ for k=1:19
         title = sprintf('%02d%s',k,con(n)); %Create filename
         
         %WINDOWS
-        EEG = pop_saveset(tEEG, title, strcat(home, '\data\flipped_files_org'));
+        %EEG = pop_saveset(tEEG, title, strcat(home, '\data\flipped_files_org'));
         
         %MAC
-        %EEG = pop_saveset(tEEG, title, strcat(home, '/data/flipped_files'));
+        EEG = pop_saveset(tEEG, title, strcat(home, '/data/flipped_files'));
 
         
     end

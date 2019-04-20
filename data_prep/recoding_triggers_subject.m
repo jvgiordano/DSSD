@@ -39,7 +39,13 @@ for subject_n = 1:19
     for trial_type_ind = 1:4
 
         doc = sprintf('%02d%s.set',subject_n,trial_types(trial_type_ind)); %sprintf must be used for newer Matlab versions, filename is of form '01cr.set'
-        tmp = pop_loadset('filename',doc,'filepath', strcat(home, '\data\flipped_files_org'));
+        
+        %WINDOWS
+        %tmp = pop_loadset('filename',doc,'filepath', strcat(home, '\data\flipped_files_org'));
+        
+        %MAC
+        tmp = pop_loadset('filename',doc,'filepath', strcat(home, '/data/flipped_files'));
+
         
         %Create "labels" array, 
         x = size(tmp.data);
@@ -60,7 +66,14 @@ for subject_n = 1:19
     end
     
     % save the whole dataset
-    data_dir = strcat(home, '\data\recoded_files_flipped_org')
+    
+    %WINDOWS
+    %data_dir = strcat(home, '\data\recoded_files_flipped_org')
+    
+    %MAC
+    data_dir = strcat(home, '/data/recoded_files_flipped')
+
+    
     eegset_all = pop_saveset(TMPEEG,'filename', sprintf('%02i_all_flipped.set',...
         subject_n), 'filepath', data_dir);
     labels = [];

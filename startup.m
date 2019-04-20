@@ -8,14 +8,14 @@
 home = pwd;
 
 % WINDOWS
-ft_path = strcat(home, '\Toolboxes'); % Note Mac and Linux use forward slashes / instead of \
-eeglab_path = strcat(home, '\Toolboxes');
-adam_path = strcat(home, '\Toolboxes');
+%ft_path = strcat(home, '\Toolboxes'); % Note Mac and Linux use forward slashes / instead of \
+%eeglab_path = strcat(home, '\Toolboxes');
+%adam_path = strcat(home, '\Toolboxes');
 
 % MAC
-% ft_path = strcat(home, '/Toolboxes'); % Note Mac and Linux use forward slashes / instead of \
-% eeglab_path = strcat(home, '/Toolboxes');
-% adam_path = strcat(home, '/Toolboxes');
+ft_path = strcat(home, '/Toolboxes'); % Note Mac and Linux use forward slashes / instead of \
+eeglab_path = strcat(home, '/Toolboxes');
+adam_path = strcat(home, '/Toolboxes');
 
 
 

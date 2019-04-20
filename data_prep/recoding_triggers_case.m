@@ -40,7 +40,10 @@ for k=1:1
         doc = sprintf('%02d%s.set',k,con(n)); %sprintf must be used for newer Matlab versions, filename is of form '01cr.set'
                 
         % WINDOWS
-        EEG = pop_loadset('filename',doc,'filepath', strcat(home, '\data\dssd_divided'));
+        %EEG = pop_loadset('filename',doc,'filepath', strcat(home, '\data\dssd_divided'));
+        
+        % MAC
+        EEG = pop_loadset('filename',doc,'filepath', strcat(home, '/data/dssd_divided'));
         
         % how many events were there in that EEG dataset
         n_event = length(EEG.event);
@@ -80,9 +83,9 @@ for k=1:1
         title = sprintf('%02d%s_recoded',k,con(n)); %Create title for plots
         
         %WINDOWS
-        EEG = pop_saveset(EEG, title, strcat(home, '\data\recoded_files'));
+        %EEG = pop_saveset(EEG, title, strcat(home, '\data\recoded_files'));
 
         %MAC
-        %EEG = pop_saveset(EEG, title, strcat(home, '/data/recoded_files'));
+        EEG = pop_saveset(EEG, title, strcat(home, '/data/recoded_files_flipped'));
     end
 end
