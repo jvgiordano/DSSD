@@ -34,7 +34,14 @@ class_2 = [3,4];
 % GENERAL ANALYSIS CONFIGURATION SETTINGS
 home = pwd; %Home is setting to working directory
 cfg = []; % clear the config variable
-cfg.datadir = char(home + "\Data\recoded_files_flipped"); % this is where the data files are
+
+%WINDOWS
+%cfg.datadir = char(home + "\Data\recoded_files_flipped"); % this is where the data files are
+
+%MAC
+cfg.datadir = char(home + "/Data/recoded_files_flipped"); % this is where the data files are
+
+
 cfg.model = 'BDM'; % backward decoding ('BDM') or forward encoding ('FEM')
 cfg.raw_or_tfr = 'raw'; % classify raw or time frequency representations ('tfr')
 cfg.nfolds = 10; % the number of folds to use
@@ -49,7 +56,14 @@ cfg.erp_baseline = [-.1,0]; % baseline correction in sec. ('no' for no correctio
 cfg.filenames = filenames; % data filenames (EEG in this case)
 cfg.class_spec{1} = cond_string(class_1); % the first stimulus class
 cfg.class_spec{2} = cond_string(class_2); % the second stimulus class
+
+%WINDOWS
 cfg.outputdir = char(home+ "\Results\Flipped\Stimulus_Movement_AUC"); % output location
+
+%MAC
+cfg.outputdir = char(home+ "/Results/Flipped/Stimulus_Movement_AUC"); % output location
+
+
 adam_MVPA_firstlevel(cfg); % run first level analysis
 
 %% Plot
