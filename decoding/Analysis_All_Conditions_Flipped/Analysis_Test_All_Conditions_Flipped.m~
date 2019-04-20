@@ -59,7 +59,6 @@ cfg.class_spec{1} = cond_string(class_1); % the first stimulus class
 cfg.class_spec{2} = cond_string(class_2); % the second stimulus class
 cfg.class_spec{3} = cond_string(class_3);
 cfg.class_spec{4} = cond_string(class_4);
-
 %WINDOWS
 cfg.outputdir = char(home+ "\Results\Flipped\All_Conditions_AUC"); % output location
 
