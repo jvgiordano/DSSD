@@ -48,7 +48,7 @@ cfg.class_method = 'AUC'; % the performance measure to use, AUC is other option
 cfg.crossclass = 'yes'; % whether to compute temporal generalization
 cfg.channelpool = 'ALL_NOSELECTION'; % the channel selection to use
 cfg.resample = 150; % downsample (useful for temporal generalization)
-cfg.erp_baseline = [-0.2,0]; % baseline correction in sec. ('no' for no correction)
+cfg.erp_baseline = [-0.2,-0.1]; % baseline correction in sec. ('no' for no correction)
 
 
 % SPECIFIC SETTINGS: EEG NONFAMOUS VERSUS SCRAMBLED FACES
