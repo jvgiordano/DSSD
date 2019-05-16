@@ -1,5 +1,3 @@
-% WORK IN PROGRESS, WILL NOT RUN CORRECTLY
-
 % SUMMARY: This script will run decoding analysis on the data for the
 % following conditions:
 % 1. All conditions 
@@ -10,8 +8,6 @@
 % 6. CR vs Miss (Different Stimulus, Same Response)
 % 7. Hit vs FA (Different Stimulus, Same Response)
 % 8. Hit vs Miss (Same Stimulus, Different Response)
-%
-%
 %
 % By: Jonny Giordano
 % Made: May 16th, 2019
