@@ -17,7 +17,7 @@ cfg = [];
 cfg.startdir = char(pwd + "\Resuts\Flipped\All_Conditions_AUC");
 cfg.mpcompcor_method = 'cluster_based';
 cfg.reduce_dims = 'diag'; %Train and test on the same points
-cfg.splinefreq = 11; %This is a low pass filter, remove it to see exact results
+%cfg.splinefreq = 11; %This is a low pass filter, remove it to see exact results
 cfg.plotsubjects = true;
 
 
@@ -53,7 +53,7 @@ adam_plot_BDM_weights(cfg, mvpa_stats);
 
 %Set Configuration Settings
 cfg = [];
-cfg.startdir = char(pwd + "\Resuts\Flipped\All_Conditions_AUC");
+%cfg.startdir = char(pwd + "\Resuts\Flipped\All_Conditions_AUC");
 cfg.mpcompcor_method = 'cluster_based';
 cfg.iterations = 250;
 mvpa_stats = adam_compute_group_MVPA(cfg);

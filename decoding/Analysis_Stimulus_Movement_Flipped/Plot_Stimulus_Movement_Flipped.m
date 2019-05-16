@@ -18,7 +18,7 @@ cfg.startdir = char(pwd + "\Resuts\Flipped\Stimulus_Movement_AUC");
 cfg.mpcompcor_method = 'cluster_based';
 cfg.reduce_dims = 'diag'; %Train and test on the same points
 %cfg.splinefreq = 11 %This is a low pass filter, remove it to see exact results
-%cfg.plotsubjects = true;
+cfg.plotsubjects = true;
 
 cfg.singleplot = true;
 %Calculate statistics, plot single subjects
@@ -43,7 +43,7 @@ adam_plot_MVPA(cfg, mvpa_stats);
 cfg = [];
 cfg.mpcompcor_method = 'cluster_based';
 cfg.plotweights_or_pattern = 'covpatten';
-cfg.weightlim = [-0.5 0.5];
+cfg.weightlim = [-0.6 0.6];
 cfg.timelim = [500 550];
 
 %Plot Topo map
