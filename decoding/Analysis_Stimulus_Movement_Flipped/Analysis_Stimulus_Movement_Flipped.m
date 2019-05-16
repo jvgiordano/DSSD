@@ -36,10 +36,10 @@ home = pwd; %Home is setting to working directory
 cfg = []; % clear the config variable
 
 %WINDOWS
-%cfg.datadir = char(home + "\Data\recoded_files_flipped"); % this is where the data files are
+cfg.datadir = char(home + "\Data\recoded_files_flipped"); % this is where the data files are
 
 %MAC
-cfg.datadir = char(home + "/Data/recoded_files_flipped"); % this is where the data files are
+%cfg.datadir = char(home + "/Data/recoded_files_flipped"); % this is where the data files are
 
 
 cfg.model = 'BDM'; % backward decoding ('BDM') or forward encoding ('FEM')
@@ -47,7 +47,7 @@ cfg.raw_or_tfr = 'raw'; % classify raw or time frequency representations ('tfr')
 cfg.nfolds = 10; % the number of folds to use
 cfg.class_method = 'AUC'; % the performance measure to use, AUC is other option
 cfg.crossclass = 'yes'; % whether to compute temporal generalization
-cfg.channelpool = 'ALL_NOSELECTION'; % the channel selection to use
+cfg.channelpool = 'PARIET'; % the channel selection to use
 cfg.resample = 150; % downsample (useful for temporal generalization)
 cfg.erp_baseline = [-0.2,-0.1]; % baseline correction in sec. ('no' for no correction)
 
@@ -58,10 +58,10 @@ cfg.class_spec{1} = cond_string(class_1); % the first stimulus class
 cfg.class_spec{2} = cond_string(class_2); % the second stimulus class
 
 %WINDOWS
-cfg.outputdir = char(home+ "\Results\Flipped\Stimulus_Movement_AUC"); % output location
+cfg.outputdir = char(home+ "\Results\Flipped\Stimulus_Movement_AUC_Parietal"); % output location
 
 %MAC
-cfg.outputdir = char(home+ "/Results/Flipped/Stimulus_Movement_AUC"); % output location
+%cfg.outputdir = char(home+ "/Results/Flipped/Stimulus_Movement_AUC"); % output location
 
 
 adam_MVPA_firstlevel(cfg); % run first level analysis
