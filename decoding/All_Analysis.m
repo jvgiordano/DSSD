@@ -25,7 +25,7 @@
 
 % GENERAL ANALYSIS CONFIGURATION SETTINGS
 home = pwd; %Home is setting to working directory
-experiment = home + '/Results/Flipped/' + 'Contra_Parietal'; %Adjust result's directory
+experiment = char(home + "/Results/Flipped/" + "Contra_Parietal"); %Adjust result's directory
 cfg = []; % clear the config variable
 
 %Loop through various analysis
@@ -40,10 +40,10 @@ for i = 1:8
         class_4 = 4;
         
         %WINDOWS
-        cfg.outputdir = char(experiment+ "\All_Conditions"); % output location
+        cfg.outputdir = char(experiment + "\All_Conditions"); % output location
 
         %MAC
-        cfg.outputdir = char(experiment+ "/All_Conditions"); % output location
+        cfg.outputdir = char(experiment + "/All_Conditions"); % output location
         
         %continue;
     elseif i == 2 %Correct Response
@@ -51,10 +51,10 @@ for i = 1:8
         class_2 = [2,4];
         
         %WINDOWS
-        cfg.outputdir = char(experiment+ "\Correct Reponse"); % output location
+        cfg.outputdir = char(experiment + "\Correct Reponse"); % output location
 
         %MAC
-        cfg.outputdir = char(experiment+ "/CorrectReponse"); % output location        
+        cfg.outputdir = char(experiment + "/CorrectReponse"); % output location        
         
         %contiue;
     elseif i == 3 %Perceived Movement
@@ -62,10 +62,10 @@ for i = 1:8
         class_2 = [1,4];
         
         %WINDOWS
-        cfg.outputdir = char(experiment+ "\Perceived_Movement"); % output location
+        cfg.outputdir = char(experiment + "\Perceived_Movement"); % output location
 
         %MAC
-        cfg.outputdir = char(experiment+ "/Perceived_Movement"); % output location
+        cfg.outputdir = char(experiment + "/Perceived_Movement"); % output location
         
         %continue
     elseif i == 4 %Stimulus Movement
@@ -73,10 +73,10 @@ for i = 1:8
         class_2 = [3,4];
         
         %WINDOWS
-        cfg.outputdir = char(experiment+ "\Stimulus_Movement"); % output location
+        cfg.outputdir = char(experiment + "\Stimulus_Movement"); % output location
 
         %MAC
-        cfg.outputdir = char(experiment+ "/Stimulus_Movement"); % output location        
+        cfg.outputdir = char(experiment + "/Stimulus_Movement"); % output location        
         
         %continue
     elseif i == 5 %CR vs FA
@@ -84,10 +84,10 @@ for i = 1:8
         class_2 = 2;  
         
         %WINDOWS
-        cfg.outputdir = char(experiment+ "\CR_vs_FA"); % output location
+        cfg.outputdir = char(experiment + "\CR_vs_FA"); % output location
 
         %MAC
-        cfg.outputdir = char(experiment+ "/CR_vs_FA"); % output location        
+        cfg.outputdir = char(experiment + "/CR_vs_FA"); % output location        
         
         %continue
     elseif i == 6 %CR vs Miss
@@ -95,10 +95,10 @@ for i = 1:8
         class_2 = 4;   
         
         %WINDOWS
-        cfg.outputdir = char(experiment+ "\CR_vs_Miss"); % output location
+        cfg.outputdir = char(experiment + "\CR_vs_Miss"); % output location
 
         %MAC
-        cfg.outputdir = char(experiment+ "/CR_vs_Miss"); % output location 
+        cfg.outputdir = char(experiment + "/CR_vs_Miss"); % output location 
         
         %continue
     elseif i == 7 %Hit vs FA
@@ -106,10 +106,10 @@ for i = 1:8
         class_2 = 2; 
         
         %WINDOWS
-        cfg.outputdir = char(experiment+ "\Hit_vs_FA"); % output location
+        cfg.outputdir = char(experiment + "\Hit_vs_FA"); % output location
 
         %MAC
-        cfg.outputdir = char(experiment+ "/Hit_vs_FA"); % output location 
+        cfg.outputdir = char(experiment + "/Hit_vs_FA"); % output location 
         
         %continue
     elseif i == 8 %Hit vs Miss
@@ -117,10 +117,10 @@ for i = 1:8
         class_2 = 4;
         
         %WINDOWS
-        cfg.outputdir = char(experiment+ "\Hit_vs_Miss"); % output location
+        cfg.outputdir = char(experiment + "\Hit_vs_Miss"); % output location
 
         %MAC
-        cfg.outputdir = char(experiment+ "/Hit_vs_Miss"); % output location         
+        cfg.outputdir = char(experiment + "/Hit_vs_Miss"); % output location         
         
         %continue
     end
