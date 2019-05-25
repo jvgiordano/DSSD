@@ -24,12 +24,12 @@ cfg.cluster_pval = 0.05; %Sets P-Value
 
 %cfg.singleplot = true;
 cfg.plot_order = { %'Correct_Response_AUC' ...
-                   'Stimulus_Movement_AUC' ...
+                   'Stimulus_Movement' ...
                    %'Perceived_Movement_AUC' 
                    };
 
 mvpa_stats = adam_compute_group_MVPA(cfg);
-cfg.acclim = [0.48 0.52];
+%cfg.acclim = [0.48 0.52];
 adam_plot_MVPA(cfg, mvpa_stats);
 
 %%
@@ -37,7 +37,7 @@ adam_plot_MVPA(cfg, mvpa_stats);
 figure(1)
 title('Stimulus Movement AUC')
 cfg = [];
-cfg.startdir = strcat(pwd + "\Resuts\Flipped\Stimulus_Movement_AUC");
+cfg.startdir = strcat(pwd + "\Resuts\Flipped\Stimulus_Movement");
 cfg.mpcompcor_method = 'cluster_based';
 cfg.reduce_dims = 'diag'; %Train and test on the same points
 %cfg.splinefreq = 11 %This is a low pass filter, remove it to see exact results

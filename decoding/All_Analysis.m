@@ -25,11 +25,11 @@
 
 % GENERAL ANALYSIS CONFIGURATION SETTINGS
 home = pwd; %Home is setting to working directory
-experiment = char(home + "/Results/Flipped/" + "Contra_Parietal"); %Adjust result's directory
+experiment = char(home + "/Results/Flipped_Fixed/" + ""); %Adjust result's directory
 cfg = []; % clear the config variable
 
 %Loop through various analysis
-for i = 1:8
+for i = 1:4
     
     %In order to skip a case, uncomment the 'continue' for it
     
@@ -76,7 +76,7 @@ for i = 1:8
         cfg.outputdir = char(experiment + "\Stimulus_Movement"); % output location
 
         %MAC
-        cfg.outputdir = char(experiment + "/Stimulus_Movement"); % output location        
+        %cfg.outputdir = char(experiment + "/Stimulus_Movement"); % output location        
         
         %continue
     elseif i == 5 %CR vs FA
@@ -149,10 +149,10 @@ for i = 1:8
     %meg_filenames = file_list_restrict(filenames,'MEG'); % only MEG files
 
     %WINDOWS
-    cfg.datadir = char(home + "\Data\recoded_files_flipped"); % this is where the data files are
+    cfg.datadir = char(home + "\Data\combined"); % this is where the data files are
 
     %MAC
-    cfg.datadir = char(home + "/Data/recoded_files_flipped"); % this is where the data files are
+    %cfg.datadir = char(home + "/Data/recoded_files_flipped"); % this is where the data files are
 
 
     cfg.model = 'BDM'; % backward decoding ('BDM') or forward encoding ('FEM')
@@ -160,13 +160,11 @@ for i = 1:8
     cfg.nfolds = 10; % the number of folds to use
     cfg.class_method = 'AUC'; % the performance measure to use, AUC is other option
     cfg.crossclass = 'yes'; % whether to compute temporal generalization
-    cfg.channelpool = 'P7,P5,P3,P1,PO7,PO3'; % the channel selection to use
+    cfg.channelpool = 'ALL_NOSELECTION'; % the channel selection to use
     cfg.resample = 150; % downsample (useful for temporal generalization)
-    cfg.erp_baseline = 'no'; % baseline correction in sec. ('no' for no correction)
-    %cfg.erp_baseline = [-0.2,0]; % baseline correction in sec. ('no' for no correction)
+    %cfg.erp_baseline = 'no'; % baseline correction in sec. ('no' for no correction)
+    cfg.erp_baseline = [-0.2,0]; % baseline correction in sec. ('no' for no correction)
     
-
-    % SPECIFIC SETTINGS: EEG NONFAMOUS VERSUS SCRAMBLED FACES
     cfg.filenames = filenames; % data filenames (EEG in this case)
     
     if i == 1 %Seperate All_Conditions Classification from other cases

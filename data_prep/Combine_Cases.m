@@ -59,15 +59,6 @@ for subject_n = 1:19
         tlabels = [];
     end
     
-    %{
-    for cEvents = 1:numel(EEG.epoch)
-    if iscell(EEG.epoch(cEvents).eventlatency)
-        index = cell2mat(EEG.epoch(cEvents).eventlatency) == 0;
-    else
-        index = EEG.epoch(cEvents).eventlatency == 0;
-    end
-    %}
-    
     %Write over Epochs with new labels
     n_epoch = length(TMPEEG.epoch);
     for epoch_i = 1:n_epoch
