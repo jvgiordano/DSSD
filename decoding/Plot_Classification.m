@@ -15,23 +15,25 @@
 
 
 cfg = [];
-cfg.startdir = 'C:\Users\jonny\Desktop\DSSD\Results\Flipped-(-0.2,-0.1)\';
+cfg.startdir = 'C:\Users\jonny\Desktop\DSSD\Results\';
 cfg.mpcompcor_method = 'cluster_based';
-%cfg.reduce_dims = 'diag'; %Train and test on the same time points
+cfg.reduce_dims = 'diag'; %Train and test on the same time points
 cfg.cluster_pval = 0.05; %Sets P-Value
-%cfg.channelpool = 'ALL_NOSELECTION'; %Selection of electrodes from first analysis
+cfg.channelpool = 'ALL_NOSELECTION'; %Selection of electrodes from first analysis
 %cfg.splinefreq = 10; %Run a low pass filter at given frequency
+%cfg.singleplot = true; %Plot single subject results
 
-%cfg.singleplot = true;
-cfg.plot_order = { %'Correct_Response_AUC' ...
+cfg.plot_order = { 'All_Conditions' ...
+                   'Correct_Response' ...
+                   'Perceived_Movement' ...
                    'Stimulus_Movement' ...
-                   %'Perceived_Movement_AUC' 
                    };
 
 mvpa_stats = adam_compute_group_MVPA(cfg);
-%cfg.acclim = [0.48 0.52];
 adam_plot_MVPA(cfg, mvpa_stats);
 
+
+%{
 %%
 %Set Configuration settings
 figure(1)
@@ -86,3 +88,4 @@ mvpa_stats = adam_compute_group_MVPA(cfg);
 
 cfg = [];
 adam_plot_MVPA(cfg, mvpa_stats);
+%}
