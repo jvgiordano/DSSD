@@ -51,10 +51,10 @@ for i = 1:4
         class_2 = [2,4];
         
         %WINDOWS
-        cfg.outputdir = char(experiment + "\Correct Reponse"); % output location
+        cfg.outputdir = char(experiment + "\Correct_Reponse"); % output location
 
         %MAC
-        cfg.outputdir = char(experiment + "/CorrectReponse"); % output location        
+        cfg.outputdir = char(experiment + "/Correct_Reponse"); % output location        
         
         %contiue;
     elseif i == 3 %Perceived Movement
@@ -76,7 +76,7 @@ for i = 1:4
         cfg.outputdir = char(experiment + "\Stimulus_Movement"); % output location
 
         %MAC
-        %cfg.outputdir = char(experiment + "/Stimulus_Movement"); % output location        
+        cfg.outputdir = char(experiment + "/Stimulus_Movement"); % output location        
         
         %continue
     elseif i == 5 %CR vs FA
@@ -152,7 +152,7 @@ for i = 1:4
     cfg.datadir = char(home + "\Data\combined"); % this is where the data files are
 
     %MAC
-    %cfg.datadir = char(home + "/Data/recoded_files_flipped"); % this is where the data files are
+    cfg.datadir = char(home + "/Data/recoded_files_flipped"); % this is where the data files are
 
 
     cfg.model = 'BDM'; % backward decoding ('BDM') or forward encoding ('FEM')
