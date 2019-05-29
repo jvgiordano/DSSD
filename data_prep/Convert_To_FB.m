@@ -18,13 +18,13 @@
 function [outputArg] = Convert_To_FB(inputArg)
 %Filter out events that aren't epochs markers, ie S71,S72,S80,S81,S82
 
-events = zeros(size(inputArg.data, 3)); %Store actual events in array for number of epochs
+events = zeros(size(inputArg.data, 3),1); %Store actual events in array for number of epochs
 
 n=1;
 for i = 1:size(inputArg.event, 2)
     temp = inputArg.event(i).type; %Find Event Type
     temp2 = str2num(temp(3:end)); %Convert Event Type to Number 10,11,12, etc.
-    if temp2 == 10 || temp2 ==11 || temp2 == 12 || temp2 == 20 || temp2 == 21 || temp2 == 22
+    if temp2 == 10 || temp2 == 11 || temp2 == 12 || temp2 == 20 || temp2 == 21 || temp2 == 22
         events(n) = temp2;
         n=n+1;
     end
@@ -33,7 +33,7 @@ end
 
 % Cycle through all events, flip electrodes for cases of S10, S11, S12
 % Electrodes 2, 12, 16, 23, 33, 38, 47, 52 remain unchanged
-for i = 1:n
+for i = 1:n-1
     temp2 = events(i);
     if temp2 == 10 || temp2 == 11 || temp2 == 12
         inputArg.data([1 30],:,i) = inputArg.data([30 1],:,i);  %Swap electrodes 1, 30

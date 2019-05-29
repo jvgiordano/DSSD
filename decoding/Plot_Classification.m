@@ -15,6 +15,7 @@
 
 
 cfg = [];
+
 cfg.startdir = 'C:\Users\jonny\Desktop\DSSD\Results\';
 cfg.mpcompcor_method = 'cluster_based';
 cfg.reduce_dims = 'diag'; %Train and test on the same time points
@@ -23,13 +24,15 @@ cfg.channelpool = 'ALL_NOSELECTION'; %Selection of electrodes from first analysi
 %cfg.splinefreq = 10; %Run a low pass filter at given frequency
 %cfg.singleplot = true; %Plot single subject results
 
-cfg.plot_order = { 'All_Conditions' ...
-                   'Correct_Response' ...
+mvpa_stats = adam_compute_group_MVPA(cfg);
+
+cfg.plot_order = { %'All_Conditions' ...
+                   %'Correct_Response' ...
                    'Perceived_Movement' ...
                    'Stimulus_Movement' ...
                    };
 
-mvpa_stats = adam_compute_group_MVPA(cfg);
+
 adam_plot_MVPA(cfg, mvpa_stats);
 
 
